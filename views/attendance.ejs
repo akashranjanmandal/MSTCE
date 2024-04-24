@@ -27,14 +27,14 @@
 <div class="main-wrapper p-3">
 <div class="content">
 <div class="page-header">
-<h1> Generate Attendance Sheet</h1>
+<h1> Generate Attendance Sheet of Exam Centers</h1>
 </div>
 
 <div class="card">
 <div class="card-body">
 <div class="table-top">
     <div class="page-title">
-        <h2>Student List</h2>
+        <h2>Exam Centers List</h2>
         </div>
 <div class="search-set">
 <div class="search-input">
@@ -68,29 +68,27 @@
 <span class="checkmarks"></span>
 </label>
 </th>
-<th>Student Name</th>
-<th>Branch</th>
+<th>Center Name</th>
 <th>Year</th>
 <th>View Application</th>
 </tr>
 </thead>
 <tbody>
-    <% users.forEach(user => { %>
+  
         <tr>
             <td>
                 <!-- Add checkbox here if needed -->
             </td>
-            <td><%= user.firstName %> <%= user.lastName %></td>
+            <td>Shillong Center -1 </td>
             <!-- Add other user details here -->
-            <td>Electrical Engineering</td>
             <td>2024</td>
             <td>
-    <a class="me-3" href="/viewattendance?email=<%= user.email %>">
+    <a class="me-3" href="/viewattendance">
                     Download Attendance<i class="ai-arrow-right"></i>
                 </a>
             </td>
         </tr>
-    <% }); %>
+  
 </tbody>
 </table>
 </div>

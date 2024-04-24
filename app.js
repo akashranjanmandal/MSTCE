@@ -629,14 +629,7 @@ app.get('/downloadpaymentslip', async (req, res) => {
 
 app.get('/viewattendance', async (req, res) => {
     try {
-        const { email } = req.query;
-        // Find the user by email address
-        const user = await User.findOne({ email });
-
-        if (!user) {
-            // If user doesn't exist, respond with an error message or redirect to an error page
-            return res.status(404).send('User not found');
-        }
+    
 
         // Define the HTML template for the registration form
         const htmlTemplate = `
@@ -645,137 +638,73 @@ app.get('/viewattendance', async (req, res) => {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Student Attendance</title>
+    <title>Exam Center Attendance</title>
     <style>
         body {
             font-family: Arial, sans-serif;
         }
-        .student-info {
-            float: left;
-            margin-bottom: 20px;
-        }
-        .student-info p {
-            margin: 5px 0;
-        }
-        .student-info img {
-            float: right;
-            width: 100px;
-            height: 100px;
-            object-fit: cover;
-            margin-left: 10px;
-            border: 1px solid #ddd;
-        }
-        .attendance-header {
-            clear: both;
-            text-align: center;
-            margin-top: 20px;
-        }
         .attendance-table {
             width: 100%;
             border-collapse: collapse;
-            text-align: center;
             margin-top: 20px;
         }
         .attendance-table th, .attendance-table td {
             border: 1px solid #ddd;
             padding: 8px;
+            text-align: center;
         }
         .attendance-table th {
             background-color: #f2f2f2;
         }
-        .student-signature {
-            text-align: right;
-            margin-top: 20px;
+        .xyz{
+            background-image: url('https://i.pinimg.com/736x/04/c6/83/04c683fbd9f24c509df57b559bdc0e91.jpg');
+            background-position: center;
+            height: 50px;
+            aspect-ratio: 1 / 2;
+            z-index: 1;
+            padding: 0;
         }
     </style>
 </head>
 <body>
-    <div class="student-info">
-        <p><strong>Name:</strong> ${user.firstName} ${user.lastName}</p>
-        <p><strong>Roll Number:</strong> 32538</p>
-        <!-- Add more student information as needed -->
-    </div>
-    <img src="/img/dp.png" alt="Student Image" class="student-image">
-    <div class="attendance-header">
-        <h2>Student Attendance</h2>
-        <h3>Attendance Record (Percentage)</h3>
-    </div>
+<p style="font-size: 25px; margin-left: 350px">Attendance Sheet</p>
+<h2 style="margin: auto 20px; font-size: 40px !important">Meghalaya State Council for Technical Education</h2>
     <table class="attendance-table">
         <thead>
             <tr>
-                <th>Subject</th>
-                <th>Week 1</th>
-                <th>Week 2</th>
-                <th>Week 3</th>
-                <th>Week 4</th>
-                <!-- Add more weeks as needed -->
-                <th>Average</th>
+                <th>Name of Center</th>
+                <th>Subject Code</th>
+                <th>Answer Script No.</th>
+                <th>Candidate Signature</th>
+                <th>Invigilator's Signature</th>
             </tr>
         </thead>
         <tbody>
             <tr>
-                <td class="subject-name">EE501 Power Electronics</td>
-                <td>80%</td>
-                <td>90%</td>
-                <td>85%</td>
-                <td>95%</td>
-                <!-- Add attendance percentage for each week -->
-                <td class="attendance-percentage">87.5%</td>
+                <td rowspan="5">Shillong Center-1</td>
+                <td>EE501</td>
+                <td>001</td>
+                <td><div class="xyz"></div></td>
+                <td><div class="xyz"></div></td>
             </tr>
             <tr>
-                <td class="subject-name">EE505 Switchgear & Protection</td>
-                <td>70%</td>
-                <td>80%</td>
-                <td>75%</td>
-                <td>85%</td>
-                <!-- Add attendance percentage for each week -->
-                <td class="attendance-percentage">77.5%</td>
+                <td>EE505</td>
+                <td>002</td>
+                <td><div class="xyz"></div></td>
+                <td><div class="xyz"></div></td>
             </tr>
+            <!-- Add more rows for other subjects or candidates -->
             <tr>
-                <td class="subject-name">EE506 Instrumentation & Control</td>
-                <td>75%</td>
-                <td>85%</td>
-                <td>80%</td>
-                <td>90%</td>
-                <!-- Add attendance percentage for each week -->
-                <td class="attendance-percentage">82.5%</td>
+                <td>EE601</td>
+                <td>003</td>
+                <td><div class="xyz"></div></td>
+                <td><div class="xyz"></div></td>
             </tr>
-            <tr>
-                <td class="subject-name">EE601 Elective-II Utilisation of Electrical Power</td>
-                <td>85%</td>
-                <td>95%</td>
-                <td>90%</td>
-                <td>100%</td>
-                <!-- Add attendance percentage for each week -->
-                <td class="attendance-percentage">92.5%</td>
-            </tr>
-            <tr>
-                <td class="subject-name">EE513 Professional Practices-V</td>
-                <td>60%</td>
-                <td>70%</td>
-                <td>65%</td>
-                <td>75%</td>
-                <!-- Add attendance percentage for each week -->
-                <td class="attendance-percentage">67.5%</td>
-            </tr>
-            <tr>
-                <td class="subject-name">EE612 Project</td>
-                <td>90%</td>
-                <td>100%</td>
-                <td>95%</td>
-                <td>100%</td>
-                <!-- Add attendance percentage for each week -->
-                <td class="attendance-percentage">96.25%</td>
-            </tr>
-            <!-- Add more rows for other subjects -->
         </tbody>
     </table>
- <div class="student-signature">
-        <p>________________________</p>
-        <p>Student Signature</p>
-    </div>
 </body>
 </html>
+
 
 
         `;
@@ -1200,9 +1129,9 @@ app.get('/downloadpaymentsliponline', async (req, res) => {
 });
 
 
-app.post('/downloadregisteredform', async (req, res) => {
+app.get('/downloadregisteredform', async (req, res) => {
     try {
-        const { email } = req.body;
+        const { email } = req.query
         // Find the user by email address
         const user = await User.findOne({ email });
 
