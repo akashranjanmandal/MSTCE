@@ -8,7 +8,6 @@ const path = require('path');
 
 // Initialize express app
 const app = express();
-const puppeteer = require('puppeteer');
 
 // Set up middleware
 app.use(bodyParser.json());
@@ -379,7 +378,7 @@ app.get('/downloadpaymentslip', async (req, res) => {
         ------------------------------------- */
         a {
             color: #1ab394;
-            text-decoration: none;
+            text-decoration: underline;
         }
         
         .btn-primary {
@@ -953,7 +952,7 @@ app.get('/downloadpaymentsliponline', async (req, res) => {
         ------------------------------------- */
         a {
             color: #1ab394;
-            text-decoration: none;
+            text-decoration: underline;
         }
         
         .btn-primary {
@@ -1178,25 +1177,22 @@ app.get('/downloadpaymentsliponline', async (req, res) => {
         `;
 
         // Options for pdf creation
-        const browser = await puppeteer.launch({
-            args: ['--no-sandbox', '--disable-setuid-sandbox', '--disable-dev-shm-usage'],
-            headless: true // Ensure headless mode
+        const options = {
+            format: 'A4',
+            orientation: 'portrait'
+        };
+
+        // Generate PDF from HTML template
+        pdf.create(htmlTemplate, options).toStream((err, stream) => {
+            if (err) {
+                // If there's an error, respond with an error message or redirect to an error page
+                return res.status(500).send('Failed to generate PDF');
+            }
+            
+            // Serve the generated PDF to the user
+            res.setHeader('Content-Type', 'application/pdf');
+            stream.pipe(res);
         });
-        const page = await browser.newPage();
-
-        // Set the HTML content
-        await page.setContent(htmlTemplate);
-
-        // Generate PDF
-        const pdfBuffer = await page.pdf({ format: 'A4' });
-
-        // Close browser
-        await browser.close();
-
-        // Set headers and send the PDF as response
-        res.setHeader('Content-Type', 'application/pdf');
-        res.setHeader('Content-Disposition', 'attachment; filename=payment_slip.pdf');
-        res.send(pdfBuffer);
     } catch (err) {
         // If there's an error, respond with an error message or redirect to an error page
         res.status(500).send('Internal Server Error');
