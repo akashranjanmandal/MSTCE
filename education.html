@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Start your development with LeadMark landing page.">
+    <meta name="author" content="Devcrud">
+    <title>Education Details Form</title>
+   <!-- font icons -->
+   <link rel="stylesheet" href="/vendors/themify-icons/css/themify-icons.css">
+   <!-- Bootstrap + Steller  -->
+   <link rel="stylesheet" href="/css/leadmark.css">
+   <style>
+    body{
+        overflow: auto;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        justify-content: center;
+    }
+    form{
+        background-color: #fff;
+        border-radius: 5px;
+        padding-bottom: 10px;
+        box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    }
+   </style>
+</head>
+<body>
+    <img src="imgs/blank.jpg" style="margin-top: 20px;">
+    <div class="col-lg-5 col-12 mt-5">  
+        <form action="/form3" method="POST">
+            <div class="container p-2">
+                <h2 class="section-secondary-title m-3 mb-3" style="font-weight: 600;">Exam Registration</h2>
+                <h3 class="mt-1 ml-4 mb-3">Step 2/4 : Education Qualifucation</h3>
+                <!-- Educational Details Sections -->
+                <div id="educationalDetails">
+                    <!-- First School Section -->
+                    <div class="school-section">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <input type="text" class="form-control form-control-lg" name="boardName[]" placeholder="Board Name" required>
+                            </div>
+                                     <input type="hidden" name="email" id="email" required>
+
+                            <div class="form-group">
+                                <input type="text" class="form-control form-control-lg" name="schoolName[]" placeholder="School Name" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control form-control-lg" name="percentage[]" placeholder="Your Percentage" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-check-label ml-2" for="dob" style="font-size: 18px;">
+                                    Graduation Year
+                                </label>
+                                <input type="date" class="form-control form-control-lg" name="passoutYear[]" placeholder="Date" required>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>      
+            <div class="form-group d-flex justify-content-between ml-3 mr-3">
+                <button type="submit" class="btn btn-primary w-lg" style="font-size: 15px  !important;">Submit & Next</button>
+        </form>
+<button type="button" id="addMoreBtn" class="btn btn-secondary w-lg" style="font-size: 15px !important;">Add More</button>
+
+            </div>
+
+       <script>
+        // Function to populate input fields from query parameters
+        function populateForm() {
+            // Get the query parameters from the URL
+            const queryParams = new URLSearchParams(window.location.search);
+            
+            // Get the values from the query parameters
+            const email = queryParams.get('email');
+            // Get other values as needed
+
+            // Populate the input fields with the values
+            document.getElementById('email').value = email;
+            // Set other input field values as needed
+        }
+
+        // Call the populateForm function when the page loads
+window.onload = populateForm;
+    </script>
+            
+    <script>
+       document.addEventListener('DOMContentLoaded', function() {
+    var addMoreBtn = document.getElementById('addMoreBtn');
+    var educationalDetails = document.getElementById('educationalDetails');
+    var schoolNumber = 1;
+
+    addMoreBtn.addEventListener('click', function() {
+        schoolNumber++;
+
+        var newSchoolSection = document.createElement('div');
+        newSchoolSection.classList.add('school-section');
+
+        var newHeading = document.createElement('h5');
+        newHeading.classList.add('mt-3', 'ml-4', 'mb-2');
+        newHeading.textContent = 'School ' + schoolNumber + ' Details:';
+        newSchoolSection.appendChild(newHeading);
+
+        var clone = educationalDetails.querySelector('.school-section:first-of-type').cloneNode(true);
+        
+        // Clear input values of the cloned section
+        clone.querySelectorAll('input').forEach(input => input.value = '');
+
+        newSchoolSection.appendChild(clone);
+
+        educationalDetails.appendChild(newSchoolSection);
+    });
+});
+
+    </script>
+        
+        
+    </div> 
+    <script src="/vendors/jquery/jquery-3.4.1.js"></script>
+    <script src="/vendors/bootstrap/bootstrap.bundle.js"></script>
+</body>
+</html>

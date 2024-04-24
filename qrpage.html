@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Payment Page">
+    <meta name="author" content="Your Name">
+    <title>Payment Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: auto;
+            background-color: #f3f3f3;
+        }
+        .container {
+            text-align: center;
+        }
+        #qr-code img{
+    max-width: 50%; /* Adjust size as needed */
+    height:50%; /* Adjust size as needed */
+    margin-bottom: 20px;
+}
+
+        #payment-button {
+            padding: 10px 20px;
+            font-size: 18px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        #payment-button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Click on the QR to pay</h1>
+        <div id="qr-code">
+            <!-- Your QR code image goes here -->
+            <!-- Replace the src attribute with the path to your QR code image -->
+            <img src="/img/qr.png" alt="QR Code">
+        </div>
+       
+
+        <button id="payment-button">Make Payment</button>
+    </div>
+</body>
+<script>
+    // Function to handle button click event
+    document.getElementById('payment-button').addEventListener('click', function() {
+        // Get the email from the query parameters
+        const queryParams = new URLSearchParams(window.location.search);
+        const email = queryParams.get('email');
+
+        // Redirect to /downloadpaymentsliponline with the email in its query
+        window.location.href = '/downloadpaymentsliponline?email=' + encodeURIComponent(email);
+    });
+</script>
+</html>

@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+<title>Tabulation</title>
+
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+
+<link rel="stylesheet" href="/css/animate.css">
+
+<link rel="stylesheet" href="/plugins/select2/css/select2.min.css">
+
+<link rel="stylesheet" href="/css/dataTables.bootstrap4.min.css">
+<script src="https://unpkg.com/akar-icons-fonts"></script>
+<link rel="stylesheet" href="/plugins/fontawesome/css/fontawesome.min.css">
+<link rel="stylesheet" href="/plugins/fontawesome/css/all.min.css">
+
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<div id="global-loader">
+<div class="whirly-loader"> </div>
+</div>
+
+<div class="main-wrapper p-3">
+<div class="content">
+<div class="page-header">
+    <img src="imgs/blank.jpg" style="position: relative; top:2% ; left:50%; transform: translate(-50%,-2%);">
+</div>
+
+<div class="card">
+<div class="card-body">
+<div class="table-top">
+    <div class="page-title">
+        <h2>Tabulation</h2>
+        </div>
+<div class="search-set">
+<div class="search-input">
+<a class="btn btn-searchset"><img src="/img/icons/search-white.svg" alt="img" style="height:25px"></a>
+</div>
+</div>
+</div>
+<style>
+    th{
+        font-size: 20px;
+    }
+    td{
+        font-size: 20px;
+    }
+    .form-control{
+        font-size: 22px !important;
+    }
+</style>
+<div class="card mb-0" id="filter_inputs">
+<div class="card-body pb-0">
+<div class="row">
+</div>
+</div>
+</div>
+</div>
+
+<div class="table-responsive">
+<table class="table  datanew">
+<thead>
+<tr>
+<th>Roll number</th>
+<th>Subject code</th>
+<th>Subject</th>
+<th>Marks</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+    <td>35320</td>
+    <td id="subjectCode">EE612</td>
+    <td id="subjectName">Switchgear & Protecton</td>
+    <td>
+        <button type="button" class="btn btn-secondary" style="font-size: 18px;">Update Marks</button>
+        <input type="text" class="form-control d-none" placeholder="Enter marks" style="width: 150px;height: 80px; margin:10px ;">
+        <button type="button" class="btn btn-submit d-none" style="font-size: 18px;">Save Marks</button>
+    </td>
+</tr>
+<tr>
+    <td>35321</td>
+    <td id="subjectCode">EE612</td>
+    <td id="subjectName">Switchgear & Protecton</td>
+    <td>
+        <button type="button" class="btn btn-secondary" style="font-size: 18px;">Update Marks</button>
+        <input type="text" class="form-control d-none" placeholder="Enter marks" style="width: 150px;height: 80px; margin:10px ;">        <button type="button" class="btn btn-submit d-none" style="font-size: 18px;">Save Marks</button>
+    </td>
+</tr>
+<tr>
+    <td>35322</td>
+    <td id="subjectCode">EE612</td>
+    <td id="subjectName">Switchgear & Protecton</td>
+    <td>
+        <button type="button" class="btn btn-secondary" style="font-size: 18px;">Update Marks</button>
+        <input type="text" class="form-control d-none" placeholder="Enter marks" style="width: 150px;height: 80px; margin:10px ;">        <button type="button" class="btn btn-submit d-none" style="font-size: 18px;">Save Marks</button>
+    </td>
+</tr>
+<tr>
+    <td>35323</td>
+    <td id="subjectCode">EE612</td>
+    <td id="subjectName">Switchgear & Protecton</td>
+    <td>
+        <button type="button" class="btn btn-secondary" style="font-size: 18px;">Update Marks</button>
+        <input type="text" class="form-control d-none" placeholder="Enter marks" style="width: 150px;height: 80px; margin:10px ;">        <button type="button" class="btn btn-submit d-none" style="font-size: 18px;">Save Marks</button>
+    </td>
+</tr>
+<tr>
+    <td>35328</td>
+    <td id="subjectCode">EE612</td>
+    <td id="subjectName">Switchgear & Protecton</td>
+    <td>
+        <button type="button" class="btn btn-secondary" style="font-size: 18px;">Update Marks</button>
+        <input type="text" class="form-control d-none" placeholder="Enter marks" style="width: 150px;height: 80px; margin:10px ;">
+        <button type="button" class="btn btn-submit d-none" style="font-size: 18px;">Save Marks</button>
+    </td>
+</tr>
+<tr>
+    <td>35327</td>
+    <td id="subjectCode">EE612</td>
+    <td id="subjectName">Switchgear & Protecton</td>
+    <td>
+        <button type="button" class="btn btn-secondary" style="font-size: 18px;">Update Marks</button>
+        <input type="text" class="form-control d-none" placeholder="Enter marks" style="width: 150px;height: 80px; margin:10px ;">
+        <button type="button" class="btn btn-submit d-none" style="font-size: 18px;">Save Marks</button>
+    </td>
+</tr>
+<tr>
+    <td>35326</td>
+    <td id="subjectCode">EE612</td>
+    <td id="subjectName">Switchgear & Protecton</td>
+    <td>
+        <button type="button" class="btn btn-secondary" style="font-size: 18px;">Update Marks</button>
+        <input type="text" class="form-control d-none" placeholder="Enter marks" style="width: 150px;height: 80px; margin:10px ;">
+        <button type="button" class="btn btn-submit d-none" style="font-size: 18px;">Save Marks</button>
+    </td>
+</tr>
+<!-- More rows here -->
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<script>
+    // JavaScript to toggle between Update Marks and Save Marks buttons
+    document.querySelectorAll('.btn-secondary').forEach(button => {
+        button.addEventListener('click', function() {
+            const inputField = this.parentNode.querySelector('input');
+            const saveButton = this.parentNode.querySelector('.btn-submit');
+            inputField.classList.remove('d-none');
+            saveButton.classList.remove('d-none');
+            this.classList.add('d-none');
+        });
+    });
+
+    // JavaScript to save marks and update the table
+    document.querySelectorAll('.btn-submit').forEach(button => {
+        button.addEventListener('click', function() {
+            const marks = this.parentNode.querySelector('input').value;
+            // Here you can perform any action to save the marks, for now, let's just update the table cell
+            this.parentNode.innerHTML = marks;
+        });
+    });
+
+    // JavaScript to extract subject name from query parameter and display it
+    window.onload = function() {
+        const urlParams = new URLSearchParams(window.location.search);
+        const subjectParam = urlParams.get('subject');
+        const subjectCode = subjectParam.substring(0, 5); // Get first 5 letters as subject code
+        const subjectName = subjectParam.substring(5); // Get rest as subject name
+        document.getElementById('subjectCode').innerText = subjectCode;
+        document.getElementById('subjectName').innerText = subjectName;
+    };
+</script>
+</div>
+</div>
+<script src="/js/jquery-3.6.0.min.js"></script>
+
+<script src="/js/feather.min.js"></script>
+
+<script src="/js/jquery.slimscroll.min.js"></script>
+
+<script src="/js/jquery.dataTables.min.js"></script>
+<script src="/js/dataTables.bootstrap4.min.js"></script>
+
+<script src="/js/bootstrap.bundle.min.js"></script>
+
+<script src="/plugins/select2/js/select2.min.js"></script>
+
+<script src="/plugins/sweetalert/sweetalert2.all.min.js"></script>
+<script src="/plugins/sweetalert/sweetalerts.min.js"></script>
+
+<script src="/js/script.js"></script>
+</body>
+</html>

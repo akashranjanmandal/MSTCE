@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Start your development with LeadMark landing page.">
+    <meta name="author" content="Devcrud">
+    <title>User Details</title>
+   <!-- font icons -->
+   <link rel="stylesheet" href="/vendors/themify-icons/css/themify-icons.css">
+   <!-- Bootstrap + Steller  -->
+   <script src="https://unpkg.com/akar-icons-fonts"></script>
+   <link rel="stylesheet" href="/css/leadmark.css">
+   <style>
+    body{
+        overflow: auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .container{
+        background-color: #fff;
+        border-radius: 5px;
+        box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    }
+   </style>
+</head>
+<body>
+<div class="col-lg-12 col-12 mt-5">  
+    <div class="container p-2">
+<div class="col-lg-12">  
+    <div class="row">
+        <div class="form-group col-md-6"> 
+            <label class="form-check-label ml-2" for="dob" style="font-size: 22px; margin: 10px;">
+            First Name
+         </label>
+            <input type="text" class="form-control form-control-lg" id="firstName" placeholder="<%= user.firstName %>" readonly>
+         </div>
+         <div class="form-group col-md-6">
+            <label class="form-check-label ml-2" for="dob" style="font-size: 22px; margin: 10px;">
+                Last Name
+             </label>
+            <input type="text" class="form-control form-control-lg" id="lastName" placeholder="<%= user.lastName %>" readonly>
+         </div>
+         <div class="form-group col-md-6">
+            <label class="form-check-label ml-2" for="dob" style="font-size: 22px; margin: 10px;">
+                Contact Number
+             </label>
+            <input type="tel" class="form-control form-control-lg" id="contactNo" placeholder="<%= user.contactNo %>" readonly>
+         </div>
+         <div class="form-group col-md-6">
+            <label class="form-check-label ml-2" for="dob" style="font-size: 22px; margin: 10px;">
+                Email Id
+             </label>
+            <input type="email" class="form-control form-control-lg" id="email" placeholder="<%= user.email %>" readonly>
+         </div>
+         
+            <div class="form-group col-md-6">
+                <label class="form-check-label ml-2" for="dob" style="font-size: 22px; margin: 10px;">
+                    Father's Name
+                 </label>
+                <input type="text" class="form-control form-control-lg" id="fatherName" placeholder="<%= user.fatherName %>" readonly>
+             </div>
+             <div class="form-group col-md-6">
+                <label class="form-check-label ml-2" for="dob" style="font-size: 22px; margin: 10px;">
+                    Mother's Name
+                 </label>
+                <input type="text" class="form-control form-control-lg" id="motherName" placeholder="<%= user.motherName %>" readonly>
+             </div>
+        <div class="form-group col-md-6">
+            <label class="form-check-label ml-2" for="dob" style="font-size: 22px; margin: 10px;">
+                Guardian's Name
+             </label>
+          <input type="text" class="form-control form-control-lg" id="guardianName" placeholder="<%= user.guardianName %>" readonly>
+       </div>
+        <div class="form-group col-md-6">
+            <label class="form-check-label ml-2" for="dob" style="font-size: 22px; margin: 10px;">
+                Guardian's Contact
+             </label>
+          <input type="tel" class="form-control form-control-lg" id="guardianContactNo" placeholder="<%= user.guardianContactNo %>" readonly>
+       </div>
+       <div class="form-group col-md-6">
+        <label class="form-check-label ml-2" for="dob" style="font-size: 22px; margin: 10px;">
+            Address
+         </label>
+        <input type="text" class="form-control form-control-lg" id="addressLine1" placeholder="<%= user.addressLine1 %>" readonly>
+     </div>
+     <div class="form-group col-md-6">
+        <label class="form-check-label ml-2" for="dob" style="font-size: 22px; margin: 10px;">
+            Board Name
+         </label>
+        <input type="text" class="form-control form-control-lg" id="boardName" placeholder="<%= user.boardName %>" readonly>
+    </div>
+    <div class="form-group col-md-6">
+        <label class="form-check-label ml-2" for="dob" style="font-size: 22px; margin: 10px;">
+            School Name
+         </label>
+        <input type="text" class="form-control form-control-lg" id="schoolName" placeholder="<%= user.schoolName %>" readonly>
+    </div>
+    <div class="form-group col-md-6">
+        <label class="form-check-label ml-2" for="dob" style="font-size: 22px; margin: 10px;">
+            Percentage
+         </label>
+        <input type="text" class="form-control form-control-lg" id="percentage" placeholder="<%= user.percentage %>" readonly>
+    </div>
+   
+    
+    <div class="form-group col-md-6">
+        <label class="form-check-label ml-2" for="dob" style="font-size: 22px; margin: 10px;">
+            Select College
+         </label>
+        <input type="text" class="form-control form-control-lg" id="college" placeholder="<%= payment && payment.college ? payment.college : '' %>" readonly>
+    </div>
+    <div class="form-group col-md-6">
+        <label class="form-check-label ml-2" for="dob" style="font-size: 22px; margin: 10px;">
+            Payment Mode
+         </label>
+        <input type="text" class="form-control form-control-lg" id="paymentMode" placeholder="<%= payment && payment.paymentMethod ? payment.paymentMethod : '' %>" readonly>
+    </div>
+    <div class="form-group col-md-6">
+        <label class="form-check-label ml-2" for="dob" style="font-size: 22px; margin: 10px;">
+            Payment Status
+         </label>
+        <input type="text" class="form-control form-control-lg" id="paymentStatus" placeholder="<%= payment && payment.status ? payment.status : '' %>" readonly>
+    </div>
+    </div>
+  <div class="form-group " style="display: flex; justify-content: center; align-items: center; flex-wrap: wrap;">
+    <a href="/registatus1?email=<%= user.email %>" class="btn btn-primary w-lg mr-2" style="font-size: 20px !important; background-color: green !important; border: transparent !important;">
+        Accept <i class="ai-check"></i>
+    </a>
+    <a href="/registatus?email=<%= user.email %>" class="btn btn-primary w-lg ml-2" style="font-size: 20px !important; background-color: red !important; border: transparent !important;">
+        Reject <i class="ai-cross"></i>
+    </a>
+</div>
+</div>
+</div>
+</div>
+
+
+<script src="/vendors/jquery/jquery-3.4.1.js"></script>
+<script src="/vendors/bootstrap/bootstrap.bundle.js"></script>
+</body>
+</html>

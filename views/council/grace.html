@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+<title>Grace Marks</title>
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+<link rel="stylesheet" href="/css/animate.css">
+<link rel="stylesheet" href="/plugins/select2/css/select2.min.css">
+<link rel="stylesheet" href="/css/dataTables.bootstrap4.min.css">
+<link rel="stylesheet" href="/plugins/fontawesome/css/fontawesome.min.css">
+<link rel="stylesheet" href="/plugins/fontawesome/css/all.min.css">
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<div id="global-loader">
+<div class="whirly-loader"> </div>
+</div>
+<style>
+    label,input,select{
+        font-size: 18px !important;
+    }
+</style>
+
+<div class="main-wrapper p-3 m-3">
+<div class="content">
+<div class="page-header">
+    <img src="imgs/blank.jpg" style="margin-top: 20px;">
+</div>
+<div class="card"><h1>Grace Marks</h1>
+<div class="card-body">
+<div class="row">
+<div class="col-lg-3 col-sm-6 col-12">
+<div class="form-group">
+<label>Power Electronics</label>
+<input id="powerElectronics" type="text" value="80" onchange="calculateTotal()">
+</div>
+</div>
+<div class="col-lg-3 col-sm-6 col-12">
+    <div class="form-group">
+        <label>Switch Gear and Protection</label>
+        <input id="switchGear" type="text" value="70" onchange="calculateTotal()">
+        </div>
+</div>
+<div class="col-lg-3 col-sm-6 col-12">
+    <div class="form-group">
+        <label>Instrumentation & Control</label>
+        <input id="instrumentationControl" type="text" value="65" onchange="calculateTotal()">
+        </div>
+</div>
+<div class="col-lg-3 col-sm-6 col-12">
+    <div class="form-group">
+        <label>Utilization of Electric Power</label>
+        <input id="utilizationPower" type="text" value="77" onchange="calculateTotal()">
+        </div>
+</div>
+<div class="col-lg-3 col-sm-6 col-12">
+    <div class="form-group">
+        <label>Professional Practices</label>
+        <input id="professionalPractices" type="text" value="22" onchange="calculateTotal()">
+        </div>
+</div>
+<div class="col-lg-3 col-sm-6 col-12">
+    <div class="form-group">
+        <label>Total Marks</label>
+        <input id="totalMarks" type="text" value="" readonly>
+    </div>
+</div>
+<div class="col-lg-3 col-sm-6 col-12">
+    <div class="form-group">
+        <label>Total Marks After Grace Marking</label>
+        <input id="totalMarks1" type="text" value="" readonly>
+    </div>
+</div>
+<div class="col-lg-3 col-sm-6 col-12 mt-4">  
+<button onclick="updateMarks()" class="btn btn-submit me-2 mb-3">Update</button>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<script src="/js/jquery-3.6.0.min.js"></script>
+<script src="/js/feather.min.js"></script>
+<script src="/js/jquery.slimscroll.min.js"></script>
+<script src="/js/jquery.dataTables.min.js"></script>
+<script src="/js/dataTables.bootstrap4.min.js"></script>
+<script src="/js/bootstrap.bundle.min.js"></script>
+<script src="/plugins/select2/js/select2.min.js"></script>
+<script src="/plugins/sweetalert/sweetalert2.all.min.js"></script>
+<script src="/plugins/sweetalert/sweetalerts.min.js"></script>
+<script src="/js/script.js"></script>
+
+<script>
+window.onload = function() {
+    calculateTotal();
+};
+
+function calculateTotal() {
+    var powerElectronics = parseInt(document.getElementById('powerElectronics').value);
+    var switchGear = parseInt(document.getElementById('switchGear').value);
+    var instrumentationControl = parseInt(document.getElementById('instrumentationControl').value);
+    var utilizationPower = parseInt(document.getElementById('utilizationPower').value);
+    var professionalPractices = parseInt(document.getElementById('professionalPractices').value);
+
+    var totalMarks = powerElectronics + switchGear + instrumentationControl + utilizationPower + professionalPractices;
+
+    document.getElementById('totalMarks').value = totalMarks;
+}
+
+function updateMarks() {
+    var powerElectronics = parseInt(document.getElementById('powerElectronics').value);
+    var switchGear = parseInt(document.getElementById('switchGear').value);
+    var instrumentationControl = parseInt(document.getElementById('instrumentationControl').value);
+    var utilizationPower = parseInt(document.getElementById('utilizationPower').value);
+    var professionalPractices = parseInt(document.getElementById('professionalPractices').value);
+    var totalMarks1 = parseInt(document.getElementById('totalMarks').value);
+
+    var powerElectronicsDiff = powerElectronics - 80;
+    var switchGearDiff = switchGear - 70;
+    var instrumentationControlDiff = instrumentationControl - 65;
+    var utilizationPowerDiff = utilizationPower - 77;
+    var professionalPracticesDiff = professionalPractices - 22;
+
+    var totalDiff = powerElectronicsDiff + switchGearDiff + instrumentationControlDiff + utilizationPowerDiff + professionalPracticesDiff;
+    var totalMarks = totalMarks1-totalDiff;
+    var powerElectronicsUpdated = powerElectronics;
+    var switchGearUpdated = switchGear;
+    var instrumentationControlUpdated = instrumentationControl;
+    var utilizationPowerUpdated = utilizationPower;
+    var professionalPracticesUpdated = professionalPractices;
+
+    if (totalDiff !== 0) {
+        var eachDiff = totalDiff / 4;
+
+        powerElectronicsUpdated = powerElectronics - eachDiff;
+        switchGearUpdated = switchGear - eachDiff;
+        instrumentationControlUpdated = instrumentationControl - eachDiff;
+        utilizationPowerUpdated = utilizationPower - eachDiff;
+        professionalPracticesUpdated = professionalPractices - 0;
+    }
+
+    document.getElementById('powerElectronics').value = powerElectronicsUpdated;
+    document.getElementById('switchGear').value = switchGearUpdated;
+    document.getElementById('instrumentationControl').value = instrumentationControlUpdated;
+    document.getElementById('utilizationPower').value = utilizationPowerUpdated;
+    document.getElementById('professionalPractices').value = professionalPracticesUpdated;
+
+    calculateTotal();
+
+    document.getElementById('totalMarks1').value = totalMarks;
+}
+</script>
+
+</body>
+</html>

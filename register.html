@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Start your development with LeadMark landing page.">
+    <meta name="author" content="Devcrud">
+    <title>Profile Completion - Form 2</title>
+   <!-- font icons -->
+   <link rel="stylesheet" href="/vendors/themify-icons/css/themify-icons.css">
+   <!-- Bootstrap + Steller  -->
+   <link rel="stylesheet" href="/css/leadmark.css">
+   <style>
+    body{
+        overflow: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    .container{
+        background-color: #fff;
+        border-radius: 5px;
+        box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    }
+   </style>
+</head>
+<body>
+   <img src="imgs/blank.jpg" style="margin-top: 20px;">
+    <div class="col-lg-5 col-12 mt-5">  
+        <div class="container p-2">
+         <h2 class="section-secondary-title m-3 mb-3" style="font-weight: 600;">Exam Registration</h2> 
+    <h3 class="mt-3 ml-4 mb-5">Step 1/4 : Personal Details</h3>
+   <div class="col-md-12">   
+        <form action="/form2" method="POST">
+         <!-- Change the action to the endpoint for the second form -->
+    <div class="row">
+
+        <div class="form-group col-md-6">
+            <input type="text" name="fatherName" class="form-control form-control-lg" placeholder="Father's Name" required>
+         </div>
+         <input type="hidden" name="email" id="email" required>
+
+         <div class="form-group col-md-6">
+            <input type="text" name="motherName" class="form-control form-control-lg" placeholder="Mother's Name" required>
+         </div>
+    </div>
+    
+         <div class="form-group">
+            <input type="text" name="guardianName" class="form-control form-control-lg" placeholder="Guardian's Name" required>
+         </div>
+         <div class="form-group">
+            <input type="tel" name="guardianContactNo" class="form-control form-control-lg" placeholder="Guardian's Contact Number" required>
+         </div>
+             <div class="form-group">
+         <input type="text" class="form-control form-control-lg" id="exampleFormControlInput1" placeholder="Home Address" required>
+             </div>
+      <div class="row">
+      <div class="form-group col-md-6">
+         <select class="form-control form-control-lg" id="exampleFormControlSelect1">
+            <option>Sex</option>
+            <option>Male</option>
+            <option>Female</option>
+         </select>
+      </div> 
+      <div class="form-group col-md-6">
+         <select class="form-control form-control-lg" id="exampleFormControlSelect1">
+            <option>Caste/Tribe</option>
+            <option>Genarel</option>
+            <option>SC/ST/OBC</option>
+         </select>
+      </div> 
+      <div class="form-group col-md-6">
+         <input type="text" class="form-control form-control-lg" id="exampleFormControlInput1" placeholder="Community" required>
+      </div>
+      <div class="form-group col-md-6">
+         <input type="text" class="form-control form-control-lg" id="exampleFormControlInput1" placeholder="Post Office" required>
+      </div>
+      <div class="form-group col-md-6">
+         <input type="text" class="form-control form-control-lg" id="exampleFormControlInput1" placeholder="Police Station" required>
+      </div>
+      <div class="form-group col-md-6">
+         <input type="text" class="form-control form-control-lg" id="exampleFormControlInput1" placeholder="Sub Division" required>
+      </div>
+      <div class="form-group col-md-6">
+         <input type="text" class="form-control form-control-lg" name="addressLine1" id="exampleFormControlInput1" placeholder="District" required>
+      </div>
+      <div class="form-group col-md-6">
+         <input type="text" class="form-control form-control-lg" name="addressLine2" id="exampleFormControlInput1" placeholder="State" required>
+      </div>
+         </div>
+         <div class="form-group">
+            <button type="submit" class="btn btn-primary w-lg" style="font-size: 20px !important;">Submit</button>
+         </div>
+        </form>
+      </div>
+   </div>
+</div>
+<script>
+        // Function to populate input fields from query parameters
+        function populateForm() {
+            // Get the query parameters from the URL
+            const queryParams = new URLSearchParams(window.location.search);
+            
+            // Get the values from the query parameters
+            const email = queryParams.get('email');
+            // Get other values as needed
+
+            // Populate the input fields with the values
+            document.getElementById('email').value = email;
+            // Set other input field values as needed
+        }
+
+        // Call the populateForm function when the page loads
+window.onload = populateForm;
+    </script>
+    </div> 
+<script src="/vendors/jquery/jquery-3.4.1.js"></script>
+<script src="/vendors/bootstrap/bootstrap.bundle.js"></script>
+</body>
+</html>

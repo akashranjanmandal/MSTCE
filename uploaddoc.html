@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Start your development with LeadMark landing page.">
+    <meta name="author" content="Devcrud">
+    <title></title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+
+<!--ICONIFY-->
+<script src="https://code.iconify.design/iconify-icon/1.0.8/iconify-icon.min.js"></script>
+
+<!--GOOGLE FONTS-->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+<!--PLUGIN-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+   <!-- font icons -->
+   <link rel="stylesheet" href="/vendors/themify-icons/css/themify-icons.css">
+   <!-- Bootstrap + Steller  -->
+   <link rel="stylesheet" href="/css/leadmark.css">
+   <style>
+/***************************
+    CUSTOM SCROLL BAR
+****************************/
+*, html{
+    scroll-behavior: smooth;
+}
+
+*, *:after, *:before {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+:root{
+    --white:#FFF;
+    --black:#000;
+    --lite:rgba(255,255,255,0.6);
+    --gray:rgba(1,1,1,0.6);
+    --dark:#202124;
+    --primary:#fdd9a9;
+    --default_font:'Poppins', sans-serif;
+}
+
+
+/***************************
+            DEFAULT
+****************************/
+body{
+    margin:0;
+    overflow-x:hidden !important;
+    font-family: var(--default_font);
+    color:inherit;
+}
+
+a{
+    text-decoration:none !important;
+    min-width: fit-content;
+    width: fit-content;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+}
+
+
+#imageModal {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    left: 200;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+}
+
+.modal-content {
+    display: flex;
+    position: absolute  ;
+    right:700px;
+    width: 200px; /* Adjust width as needed */
+    max-width: 80%; /* Maximum width for the image */
+    max-height: 80vh; /* Maximum height for the image */
+}
+
+.close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    color: #ffffff;
+    font-size: 30px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.close:hover,
+.close:focus {
+    color: #aaaaaa;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+
+a, button{
+    transition:0.5s;
+}
+
+em{
+    font-style:normal;
+    color:var(--primary_dark);
+}
+
+figure{
+    padding:0;
+    margin:0;
+}
+
+figure img{
+    width:100%;
+    height:100%;
+}
+
+a, p, .btn{
+    font-size:15px;
+}
+
+a:hover, .active{
+    opacity:1 !important;
+}
+
+p{
+    line-height:1.9em;
+    color:var(--gray);
+}
+
+a, button, input, textarea, select{
+    outline:none !important;
+}
+
+fieldset{
+    border:0;
+}
+
+h1, h2, h3, h4, h5, h6{
+    margin:0;
+}
+
+.title, .sub_title{
+    font-family:var(--title_font);
+    font-weight:400;
+    margin:0;
+}
+
+.flex, .fixed_flex{
+    display:flex;
+}
+
+.flex_content{
+    width:100%;
+    position:relative;
+}
+
+.grid{
+    display:grid;
+}
+
+.padding_1x{
+    padding:1rem;
+}
+
+.padding_2x{
+    padding:1rem;
+}
+
+.padding_3x{
+    padding:3rem;
+}
+
+.padding_4x{
+    padding:4rem;
+}
+
+.big{
+    font-size:1em;
+}
+
+.medium{
+    font-size:1em;
+}
+
+.small{
+    font-size:1.1em;
+}
+
+.btn{
+    padding:0.8rem 2rem;
+    border-radius:40px;
+    position:relative;
+    border:0;
+    text-align:center;
+}
+
+.btn_1{
+    background:var(--primary);
+    color:var(--dark);
+}
+
+.btn_1:hover{
+    background-color:var(--primary_dark);
+    color:var(--white);
+}
+
+@media (max-width:920px){
+    .flex{
+        flex-wrap:wrap;
+    }
+    
+    .padding_1x, .padding_2x, .padding_3x, .padding_4x{
+        padding:1rem;
+    }
+    
+    .big{
+        font-size:1.8em;
+    }
+    
+    .medium{
+        font-size:1.6em;
+    }
+    
+    .small{
+        font-size:1.1em;
+    }
+    
+    .btn{
+        padding:0.5rem 1rem;
+    }
+    
+    a, p, .btn{
+        font-size:12px;
+    }
+}
+
+
+
+
+/***************************
+          POPUP
+****************************/
+.popup{
+    position:fixed;
+    bottom:0.2rem;
+    right:0.2rem;
+}
+
+.popup section{
+    position:relative;
+    max-width:350px;
+    background-color:var(--dark);
+    align-items:center;
+    border:1px solid rgba(255,255,255,0.2);
+    border-radius:10px;
+    overflow:hidden;
+    box-shadow:0px 6px 16px -6px var(--gray);
+    padding:0.3rem 1rem;
+}
+
+.popup section:not(:last-child){
+    margin-bottom:0.2rem;
+}
+
+.popup .icon-error{
+    color:#ffe008;
+}
+
+.popup .icon-warning{
+    color:red;
+}
+
+.popup article{
+    padding:0 1rem;
+    color:var(--white);
+}
+
+.popup .title{
+    position:relative;
+    top:13px;
+}
+
+.popup p{
+    font-size:12px;
+    font-weight:300;
+    opacity:0.6;
+    color:var(--white);
+}
+
+.popup .close{
+    position:absolute;
+    top:0.1rem;
+    right:0.3rem;
+    color:var(--white);
+    opacity:0.6;
+}
+
+
+/***************************
+      DRAG & DROP FORM
+****************************/
+label input{
+    display:none;
+}
+.dragger{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.dragger label{
+    background-color:#f9f9f9;
+    border:1px dotted var(--gray);
+    border-radius:10px;
+    flex-wrap:wrap;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+}
+
+.dragger label iconify-icon, .dragger label .title, .dragger label p{
+    flex:0 0 100%;
+}
+
+.dragger label .fa{
+    font-size:1em;
+    color:#3399ff;
+}
+
+.dragger label em{
+    color:#3399ff;
+    cursor:pointer;
+}
+
+.dragger label p{
+    font-weight:300;
+    font-size:12px;
+}
+
+.file_preview{
+    padding:0;
+}
+
+.file_preview li{
+    align-items:center;
+    border:1px solid rgba(1,1,1,0.1);
+    border-radius:40px;
+    overflow:hidden;
+    margin-bottom:0.5rem;
+}
+
+.file_preview li .link{
+    line-height:0;
+    padding:0.1rem 1rem;
+    font-size:12px;
+    color:var(--gray);
+}
+
+.file_preview li .remove{
+    background-color:#3399ff;
+    color:var(--white);
+    padding:0.2rem 1rem;
+    margin:0 0 auto auto;
+    opacity:0.7;
+}
+
+.file_preview progress{
+    width:99%;
+    height:100%;
+    margin:auto;
+}
+
+
+.modal-header {
+    padding: 10px 10px 10px 10px;
+    text-align: center;
+    padding: 20px;
+    background-color: #fdd9a9; /* Adjust as needed */
+}
+
+.modal-header h2 {
+    margin: 0;
+    font-size: 24px; /* Adjust as needed */
+}
+
+/*Remove this*/
+.alert{
+  position:fixed;
+  right:0;
+  bottom:1rem;
+  background-color:#1e1e1e;
+  color:#fff;
+  padding:0.2rem 0.5rem;
+}
+
+.alert a{
+  color:#fff;
+}
+form{
+
+}
+</style>
+   
+</head>
+<body>
+            <div class="container p-2">
+                <img src="imgs/blank.jpg" style="margin: 20px auto;">
+                <h2 class="section-secondary-title m-3 mb-3" style="font-weight: 600;">Upload Images:</h2>
+                <h3 class="mt-1 ml-4 mb-3">Step 3/4 : Upload Documents</h3>
+                <!-- Educational Details Sections -->
+                <div id="educationalDetails">
+                    <!-- First School Section -->
+                    <div class="school-section">
+                            <!--FONT AWESOME-->
+                            
+    <div clas="col-md-12">
+<form class="dragger">
+    <div class="col-md-6 col-12">
+        <label style="border: transparent; color:#3399ff;background-color: #fff;font-size: 18px; font-weight: 700;">Clear Signature (white background) :</label>
+    <label class="fixed_flex padding_1x">
+        <i class="fa fa-cloud-upload"></i>
+        <h4 class="title">Drag & Drop<br>or <em>Upload</em></h4>
+        <p>Accepted png, jpg, jpeg, pdf</p>
+        <input type="file" onchange="handleFileUpload(this)" name="dragger[]" input-mode="file" accept=".png,.jpg,.jpeg,.pdf" />
+    </label>
+    
+    <ul class="file_preview"></ul>
+</div> 
+<div class="col-md-6 col-12">
+    <label style="border: transparent; color:#3399ff; background-color: #fff; font-size: 18px; font-weight: 700;">Passport size photo:</label>
+    <label class="fixed_flex padding_1x">
+        <i class="fa fa-cloud-upload"></i>
+        <h4 class="title">Drag & Drop<br>or <em>Upload</em></h4>
+        <p>Accepted png, jpg, jpeg, pdf</p>
+        <input type="file" onchange="handleFileUpload(this)" name="dragger[]" input-mode="file" accept=".png,.jpg,.jpeg,.pdf" />
+    </label>
+    
+    <ul class="file_preview"></ul>
+</div> 
+</form>
+            
+    
+        
+        
+</div> 
+<div id="imageModal" class="modal">
+    <span class="close">&times;</span>
+    <div class="modal-header">
+        <h2>Image Selected</h2>
+    </div>
+   
+    </div>
+
+<form method="post" action="/forcollege">
+    <!-- File upload fields -->
+    <!-- Checkbox -->
+    <div class="form-group p-2">        
+        <input type="checkbox" class="form-check-input ml-1">
+        <label for="checkbox" class="ml-4"  style="border: transparent; background-color: #fff; font-size: 18px;">I declare that the entries made in the application form are correct to the best of my knowledge & belief and undertake that if the statement given in the form is found to be not true, my registration may be cancelled by the Meghalaya State Council for Tech. Education at any time.
+            I do hereby promise that in the event of my being registered to the State Council, I shall abide by all the rules and regulations of the Council..</label>
+    </div>
+    <!-- Submit button -->
+    <div class="form-group d-flex justify-content-between ml-3 mr-3">
+        <!-- Submit button within the same form -->
+        <input type="hidden" name="email" id="email" required>
+
+        <button type="submit" class="btn btn-primary">SUBMIT & Continue to Pay</button>
+    </div>
+
+</form>
+
+<script>
+    // Function to handle file input change
+    function handleFileUpload(input) {
+        console.log("File selected");
+        const file = input.files[0];
+        const reader = new FileReader();
+
+        reader.onload = function(e) {
+            const modal = document.getElementById('imageModal');
+            const modalImg = document.getElementById('selectedImage');
+
+            // Display selected image in the modal
+            modal.style.display = "block";
+            modalImg.src = e.target.result;
+
+            // Show modal for only 3 seconds
+            setTimeout(function() {
+                document.getElementById('imageModal').style.display = "none";
+            }, 1000); // 3000 milliseconds = 3 seconds
+        }
+
+        reader.readAsDataURL(file);
+    }
+
+    // Close the modal when the user clicks on the 'x' button
+    document.querySelector('.close').onclick = function() {
+        document.getElementById('imageModal').style.display = "none";
+    }
+
+    // Close the modal when the user clicks anywhere outside of it
+    window.onclick = function(event) {
+        const modal = document.getElementById('imageModal');
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+</script>
+
+<script>
+    
+    // Function to populate input fields from query parameters
+    function populateForm() {
+        // Get the query parameters from the URL
+        const queryParams = new URLSearchParams(window.location.search);
+        
+        // Get the values from the query parameters
+        const email = queryParams.get('email');
+        // Get other values as needed
+
+        // Populate the input fields with the values
+        document.getElementById('email').value = email;
+        // Set other input field values as needed
+    }
+
+    // Call the populateForm function when the page loads
+window.onload = populateForm;
+</script>
+<script src="/vendors/jquery/jquery-3.4.1.js"></script>
+<script src="/vendors/bootstrap/bootstrap.bundle.js"></script>
+</body>
+</html>

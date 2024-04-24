@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Start your development with LeadMark landing page.">
+    <meta name="author" content="Devcrud">
+    <title></title>
+    <!-- font icons -->
+    <link rel="stylesheet" href="/vendors/themify-icons/css/themify-icons.css">
+    <!-- Bootstrap + LeadMark main styles --><link rel="stylesheet" href="/css/bootstrap.min.css">
+
+<link rel="stylesheet" href="/css/animate.css">
+
+<link rel="stylesheet" href="/plugins/select2/css/select2.min.css">
+
+<link rel="stylesheet" href="/css/dataTables.bootstrap4.min.css">
+<script src="https://unpkg.com/akar-icons-fonts"></script>
+<link rel="stylesheet" href="/plugins/fontawesome/css/fontawesome.min.css">
+<link rel="stylesheet" href="/plugins/fontawesome/css/all.min.css">
+
+<link rel="stylesheet" href="/css/style.css">
+	<link rel="stylesheet" href="/css/leadmark.css">
+</head>
+<body data-spy="scroll" data-target=".navbar" data-offset="40" id="home">
+
+    <!-- Page Header -->
+    <header class="header">
+        <div class="overlay">
+            <h1 style="font-size: 50px; font-weight: 800; margin: 10px 20px; text-transform: uppercase;">Meghalaya State Council for Technical Education</h1> 
+            <div class="registration" style="display: flex; flex-direction: row; align-items: center; justify-content: center; flex-wrap: wrap;">
+                <a href="#" class="m-2 nav-link btn btn-primary btn-lg rounded" data-toggle="modal" data-target="#registeredStudentsModal">Registered Students</a>
+                <a href="#" class="m-2 nav-link btn btn-primary btn-lg rounded" data-toggle="modal" data-target="#examCentresModal">Exam Centres</a>
+                <a href="#" class="m-2 nav-link btn btn-primary btn-lg rounded" >Generate Admit Card</a>
+                <a href="/attendance" class="m-2 nav-link btn btn-primary btn-lg rounded" >Generate Attendance Sheets</a>
+                <a href="#" class="m-2 nav-link btn btn-primary btn-lg rounded">Verify Marks</a>
+                <a href="#" class="m-2 nav-link btn btn-primary btn-lg rounded" >Generate Marksheets</a>
+                <a href="#" class="m-2 nav-link btn btn-primary btn-lg rounded" >Generate Pass Certificates</a>
+                <a href="#" class="m-2 nav-link btn btn-primary btn-lg rounded" data-toggle="modal" data-target="#viewPolytechnicsModal">View Polytechnics</a>
+                <a href="#" class="m-2 nav-link btn btn-primary btn-lg rounded" data-toggle="modal" data-target="#viewCoursesModal">View Courses</a>
+                <a href="#" class="m-2 nav-link btn btn-primary btn-lg rounded" data-toggle="modal" data-target="#viewSubjectsModal">View Subjects</a>
+                <a href="/grace" class="m-2 nav-link btn btn-primary btn-lg rounded">Grace Marks</a>
+        </div>  
+        </div>
+        <div class="shape">
+            <svg viewBox="0 0 1500 200">
+                <path d="m 0,240 h 1500.4828 v -71.92164 c 0,0 -286.2763,-81.79324 -743.19024,-81.79324 C 300.37862,86.28512 0,168.07836 0,168.07836 Z"/>
+            </svg>
+        </div>  
+    </header>
+	<!-- core  -->
+    
+<div class="modal fade bd-example-modal-lg" id="registeredStudentsModal" tabindex="-1" role="dialog" aria-labelledby="registeredStudentsModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="registeredStudentsModalLabel">Registered Students</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <img src="imgs/blank.jpg" style="margin-top: 20px; height: 70px;">
+                <div class="card">
+                    <div class="card-body">
+                    <div class="table-top">
+                        <div class="page-title">
+                            <h2>Student List</h2>
+                            </div>
+                    </div>
+                    <div class="search-set">
+                        <div class="search-input">
+                        <a class="btn btn-searchset"><img src="/img/icons/search-white.svg" alt="img" style="height:25px"></a>
+                        </div>
+                        </div>
+                    <style>
+                        th{
+                            font-size: 20px;
+                        }
+                        td{
+                            font-size: 20px;
+                        }
+                    </style>
+                    <div class="card mb-0" id="filter_inputs">
+                    <div class="card-body pb-0">
+                    <div class="row">
+                    </div>
+                    </div>
+                    </div>
+                    </div>
+                    
+                    <div class="table-responsive">
+                    <table class="table  datanew">
+                    <thead>
+                    <tr>
+                    <th>Student Name</th>
+                    <th>College</th>
+                    <th>Year</th>
+                    <th>Branch</th>
+                    <th>Roll Number</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                    <td class="productimgname">
+                    <a href="javascript:void(0);">Lakshay Deka</a>
+                    </td>
+                    <td>Shillong Polytechnic</td>
+                    <td>2024</td>
+
+                    <td>Civil Engineering</td>
+                    <td>35320</td>
+
+
+                    </tr>
+                    <tr>
+                        <td class="productimgname">
+                        <a href="javascript:void(0);">Idhant Singh</a>
+                        </td>
+                         <td>Shillong Polytechnic</td>
+                    <td>2024</td>
+
+                        <td>Electrical Engineering</td>
+                        <td>35321</td>
+
+                        </tr>
+                        <tr>
+                            <td class="productimgname">
+                            <a href="javascript:void(0);">Jay Roy</a>
+                            </td>
+                             <td>Tura Polytechnic</td>
+                    <td>2024</td>
+
+                            <td>Mechanical Engineering</td>
+                            <td>35322</td>
+                            
+                            </tr>
+                            <tr>
+                                <td class="productimgname">
+                                <a href="javascript:void(0);">Rohit Paul</a>
+                                </td>
+                                 <td>Jowai Polytechnic</td>
+                    <td>2024</td>
+
+                                <td>Computer Science & Engineering</td>
+                                <td>35323</td>
+                                
+                                </tr>
+                                <tr>
+                                    <td class="productimgname">
+                                    <a href="javascript:void(0);">Raj Verma</a>
+                                    </td>
+                                     <td>Tura Polytechnic</td>
+                    <td>2024</td>
+
+                                    <td>Information Technology</td>
+                                    <td>35324</td>
+                                    
+                                    </tr>
+                    </tbody>
+                    </table>
+                    </div>
+                    </div>
+            </div>
+            <!-- Add footer if needed -->
+        </div>
+    </div>
+</div>
+<div class="modal fade bd-example-modal-lg" id="examCentresModal" tabindex="-1" role="dialog" aria-labelledby="examCentresModallabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="examCentresModal">Exam Centres</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <img src="imgs/blank.jpg" style="margin-top: 20px; height: 70px;">
+                <div class="card">
+                    <div class="card-body">
+                    <div class="table-top">
+                        <div class="page-title">
+                            <h2>Exam Centres</h2>
+                            </div>
+                            <div class="search-set">
+                                <div class="search-input">
+                                <a class="btn btn-searchset"><img src="/img/icons/search-white.svg" alt="img" style="height:25px"></a>
+                                </div>
+                                </div>
+                    </div>
+                    <style>
+                        th{
+                            font-size: 20px;
+                        }
+                        td{
+                            font-size: 20px;
+                        }
+                    </style>
+                    <div class="card mb-0" id="filter_inputs">
+                    <div class="card-body pb-0">
+                    <div class="row">
+                    </div>
+                    </div>
+                    </div>
+                    </div>
+                    
+                    <div class="table-responsive">
+                    <table class="table  datanew">
+                    <thead>
+                    <tr>
+                    <th>Exam Centre Name</th>
+                    <th>Area</th>
+                    <th>Code</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <td>CUET exam centre</td>
+                    <td>Shillong<td>
+                        <td>1002</td>
+                    </tbody>
+                    </table>
+                    </div>
+                    </div>
+            </div>
+            <!-- Add footer if needed -->
+        </div>
+    </div>
+</div>
+<div class="modal fade bd-example-modal-lg" id="viewCoursesModal" tabindex="-1" role="dialog" aria-labelledby="viewCoursesModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="viewCoursesModal">Courses</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <img src="imgs/blank.jpg" style="margin-top: 20px; height: 70px;">
+                <div class="card">
+                    <div class="card-body">
+                    <div class="table-top">
+                        <div class="page-title">
+                            <h2>Course List</h2>
+                            </div>
+                            <div class="search-set">
+                                <div class="search-input">
+                                <a class="btn btn-searchset"><img src="/img/icons/search-white.svg" alt="img" style="height:25px"></a>
+                                </div>
+                                </div>
+                    </div>
+                    <style>
+                        th{
+                            font-size: 20px;
+                        }
+                        td{
+                            font-size: 20px;
+                        }
+                    </style>
+                    <div class="card mb-0" id="filter_inputs">
+                    <div class="card-body pb-0">
+                    <div class="row">
+                    </div>
+                    </div>
+                    </div>
+                    </div>
+                    
+                    <div class="table-responsive">
+                    <table class="table  datanew">
+                    <thead>
+                    <tr>
+                    <th>Course Name</th>
+                    <th>Code</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                    <td class="productimgname">
+                    <a href="javascript:void(0);">Civil Engineering</a>
+                    </td>
+                    <td>2000</td>
+
+                    </tr>
+                    <tr>
+                        <td class="productimgname">
+                        <a href="javascript:void(0);">Electrical Engineering</a>
+                        </td>
+                        <td>2001</td>
+
+                        </tr>
+                        <tr>
+                            <td class="productimgname">
+                            <a href="javascript:void(0);">Mechanical Engineering</a>
+                            </td>
+                            <td>2002</td>
+                            </tr>
+                    </tbody>
+                    </table>
+                    </div>
+                    </div>
+            </div>
+            <!-- Add footer if needed -->
+        </div>
+    </div>
+</div>
+<div class="modal fade bd-example-modal-lg" id="viewPolytechnicsModal" tabindex="-1" role="dialog" aria-labelledby="viewPolytechnicsModallabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="viewPolytechnicsModal">View Polytechnics</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <img src="imgs/blank.jpg" style="margin-top: 20px; height: 70px;">
+                <div class="card">
+                    <div class="card-body">
+                    <div class="table-top">
+                        <div class="page-title">
+                            <h2>Polytechnic List</h2>
+                            </div>
+                            <div class="search-set">
+                                <div class="search-input">
+                                <a class="btn btn-searchset"><img src="/img/icons/search-white.svg" alt="img" style="height:25px"></a>
+                                </div>
+                                </div>
+                    </div>
+                    <style>
+                        th{
+                            font-size: 20px;
+                        }
+                        td{
+                            font-size: 20px;
+                        }
+                    </style>
+                    <div class="card mb-0" id="filter_inputs">
+                    <div class="card-body pb-0">
+                    <div class="row">
+                    </div>
+                    </div>
+                    </div>
+                    </div>
+                    
+                    <div class="table-responsive">
+                    <table class="table  datanew">
+                    <thead>
+                    <tr>
+                    <th>Name of Technical Institution</th>
+                    <th>Code</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                    <td class="productimgname">
+                    <a href="javascript:void(0);">Shillong Polytechnic</a>
+                    </td>
+                    <td>2000</td>
+
+                    </tr>
+                    <tr>
+                        <td class="productimgname">
+                        <a href="javascript:void(0);">Jowai Polytechnic</a>
+                        </td>
+                        <td>2005</td>
+
+                        </tr>
+                        <tr>
+                            <td class="productimgname">
+                            <a href="javascript:void(0);">Tura Polytechnic</a>
+                            </td>
+                            <td>2001</td>
+                    </tbody>
+                    </table>
+                    </div>
+                    </div>
+            </div>
+            <!-- Add footer if needed -->
+        </div>
+    </div>
+</div>
+<div class="modal fade bd-example-modal-lg" id="viewSubjectsModal" tabindex="-1" role="dialog" aria-labelledby="viewSubjectsModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="viewSubjectsModalLabel">Subjects</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <img src="imgs/blank.jpg" style="margin-top: 20px; height: 70px;">
+                <div class="card">
+                    <div class="card-body">
+                    <div class="table-top">
+                        <div class="page-title">
+                            <h2>Course List</h2>
+                            </div>
+                            <div class="search-set">
+                                <div class="search-input">
+                                <a class="btn btn-searchset"><img src="/img/icons/search-white.svg" alt="img" style="height:25px"></a>
+                                </div>
+                                </div>
+                    </div>
+                    <style>
+                        th{
+                            font-size: 20px;
+                        }
+                        td{
+                            font-size: 20px;
+                        }
+                    </style>
+                    <div class="card mb-0" id="filter_inputs">
+                    <div class="card-body pb-0">
+                    <div class="row">
+                    </div>
+                    </div>
+                    </div>
+                    </div>
+                    
+                    <div class="table-responsive">
+                    <table class="table  datanew">
+                    <thead>
+                    <tr>
+                    <th>Subject Name</th>
+                    <th>Code</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                    <td class="productimgname">
+                    <a href="javascript:void(0);">Power Electronics</a>
+                    </td>
+                    <td>EE 501</td>
+
+                    </tr>
+                    <tr>
+                        <td class="productimgname">
+                        <a href="javascript:void(0);">Switchgear & Protecton</a>
+                        </td>
+                        <td>EE505</td>
+
+                        </tr>
+                        <tr>
+                            <td class="productimgname">
+                            <a href="javascript:void(0);">Instrumentation & Control</a>
+                            </td>
+                            <td>EE506</td>
+                            </tr>
+                    </tbody>
+                    </table>
+                    </div>
+                    </div>
+            </div>
+            <!-- Add footer if needed -->
+        </div>
+    </div>
+</div>
+<!-- Add similar modals for other functionalities -->
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="/vendors/jquery/jquery-3.4.1.js"></script>
+    <script src="/vendors/bootstrap/bootstrap.bundle.js"></script>
+    <script src="/js/jquery-3.6.0.min.js"></script>
+
+    <script src="/js/feather.min.js"></script>
+    
+    <script src="/js/jquery.slimscroll.min.js"></script>
+    
+    <script src="/js/jquery.dataTables.min.js"></script>
+    <script src="/js/dataTables.bootstrap4.min.js"></script>
+    
+    <script src="/js/bootstrap.bundle.min.js"></script>
+    
+    <script src="/plugins/select2/js/select2.min.js"></script>
+    
+    <script src="/plugins/sweetalert/sweetalert2.all.min.js"></script>
+    <script src="/plugins/sweetalert/sweetalerts.min.js"></script>
+    
+    <script src="/js/script.js"></script>
+    <!-- bootstrap 3 affix -->
+	<script src="/vendors/bootstrap/bootstrap.affix.js"></script>
+
+    <!-- Isotope -->
+    <script src="/vendors/isotope/isotope.pkgd.js"></script>
+
+    <!-- LeadMark js -->
+    <script src="/js/leadmark.js"></script>
+
+</body>
+</html>

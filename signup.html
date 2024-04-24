@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Start your development with LeadMark landing page.">
+    <meta name="author" content="Devcrud">
+    <title>Registration Form</title>
+   <!-- font icons -->
+   <link rel="stylesheet" href="/vendors/themify-icons/css/themify-icons.css">
+   <!-- Bootstrap + Steller  -->
+   <link rel="stylesheet" href="/css/leadmark.css">
+   <style>
+    body{
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .container{
+        background-color: #fff;
+        border-radius: 5px;
+        box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    }
+   </style>
+</head>
+<body>
+   <img src="imgs/blank.jpg" style="margin-top: 20px;">
+    <div class="col-lg-5 col-12 mt-5">
+        <div class="container p-2">
+    <h3 class="mt-3 ml-4 mb-5"><b>Enter Student details</b></h3>
+   <div class="col-md-12">   
+        <form action="/form1" method="POST"> <!-- Change the action to the endpoint for the first form -->
+        <div class="form-group">
+            <input type="text" name="firstName" class="form-control form-control-lg" placeholder="Full Name" required>
+         </div>
+         <div class="form-group ">
+            <input type="hidden" name="lastName" class="form-control form-control-lg" value="    ">
+         </div>
+    <div class="form-group">
+      <input type="tel" name="contactNo" class="form-control form-control-lg" placeholder="Contact Number" required>
+   </div>
+      <div class="form-group">
+         <input type="email" name="email" class="form-control form-control-lg" placeholder="Email address" required>
+      </div>
+      <div class="form-group">
+         <label class="form-check-label ml-2" for="dob" style="font-size: 18px;">
+            Date of Birth
+         </label>
+         <input type="date" name="dob" class="form-control form-control-lg" placeholder="Date" required>
+      </div>
+    <div class="row mt-3">
+      <p style="color:red; font-size: 18px; margin: auto;">*You need this password to access the MSCTE Student portal*</p>
+      <div class="form-group col-md-6">
+         <input type="password" name="password" class="form-control form-control-lg" placeholder="Password" required>
+      </div>
+      <div class="form-group col-md-6">
+         <input type="password" name="confirmPassword" class="form-control form-control-lg" placeholder="Confirm Password" required>
+      </div>
+      </div>
+      <div class="form-group">
+         <button type="submit" class="btn btn-primary w-lg" style="font-size: 20px !important;">Submit</button>
+      </div>
+      </form>
+   </div>
+</div>
+</div> 
+<script src="/vendors/jquery/jquery-3.4.1.js"></script>
+<script src="/vendors/bootstrap/bootstrap.bundle.js"></script>
+</body>
+</html>

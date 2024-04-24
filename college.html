@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Start your development with LeadMark landing page.">
+    <meta name="author" content="Devcrud">
+    <title></title>
+   <!-- font icons -->
+   <link rel="stylesheet" href="/vendors/themify-icons/css/themify-icons.css">
+   <!-- Bootstrap + Steller  -->
+   <link rel="stylesheet" href="/css/leadmark.css">
+   <style>
+    body{
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    .container{
+        background-color: #fff;
+        border-radius: 5px;
+        box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    }
+   </style>
+</head>
+<body>
+<!-- <form method= 'post' action='/downloadregisteredform'>
+                                     <input type="hidden" name="email" id="email" required>
+
+
+<button type="submit"   class="btn btn-secondary w-lg" style="position:fixed;top:10px; left:750px; font-size: 15px !important;">Download Registered Certificate</button>
+</form> -->
+
+<img src="imgs/blank.jpg" style="margin-top: 20px;">
+    <div class="col-lg-5 col-12 mt-5">  
+        <div class="container p-2">
+         <h2 class="section-secondary-title m-3 mb-3" style="font-weight: 600;">Pay and Confirm your registration:</h2> 
+    <h3 class="mt-3 ml-4 mb-5">Step 4/4 : </h3>
+   <div class="col-md-12">   
+    <form  action="/payment_slip" method="POST">
+    <input type="hidden"  name="email" id="email1" required>
+
+    <div class="form-group">
+        <select class="form-control form-control-lg" id="exampleFormControlSelect1" name="college">
+           <option>Select College</option>
+           <option value="Shillong Polytechnic">Shillong Polytechnic</option>
+           <option value="Jowai Polytehcnic">Jowai Polytehcnic</option>
+           <option value="Tura Polytehcnic">Tura Polytehcnic</option>
+
+        </select>
+     </div>
+     <div class="form-group">
+        <select class="form-control form-control-lg" id="exampleFormControlSelect1">
+           <option>Select Subject</option>
+           <option>EE 501 Power Electronics</option>
+                   <option>EE505 Switchgear & Protecton</option>
+                   <option>EE506 Instrumentation & Control</option>
+                   <option>EE601 Elective-II Utilisation of Electrical Power</option>
+                   <option>EE 513 Professional Practices-V</option>
+                   <option>EE612 Project</option>
+        </select>
+     </div> 
+     <div class="form-group">
+        <select class="form-control form-control-lg" id="paymentMethodSelect" name="paymentMethod">
+            <option>Select Payment Method</option>
+            <option value="online">Online Mode</option>
+            <option value="offline">Offline Mode</option>
+        </select>
+    </div> 
+      <div class="form-group">
+        <button type="submit" class="btn btn-primary w-lg" style="font-size: 20px !important;">Submit</button>
+    </div>
+    </form>
+   </div>
+    <div id="scannerImage" class="form-group" style="display: none;">
+        <img src="/imgs/scanner.jpg" alt="Scanner Image" style="width: 50%; position: relative; left: 50%; top:0%; transform: translate(-50%,-0%);" >
+    </div>
+    
+    <div id="popupMessage" class="alert alert-info" role="alert" style="display: none;">
+        Your bill has been generated. Please pay in your college and collect it.
+    </div>
+    
+     <!-- <script>
+        # document.addEventListener('DOMContentLoaded', function() {
+        #     var paymentMethodSelect = document.getElementById('paymentMethodSelect');
+        #     var scannerImage = document.getElementById('scannerImage');
+        #     var popupMessage = document.getElementById('popupMessage');
+    
+    #         paymentMethodSelect.addEventListener('change', function() {
+    #             if (paymentMethodSelect.value === 'online') {
+    #                 scannerImage.style.display = 'block';
+    #                 popupMessage.style.display = 'none'; // Hide the popup if it's visible
+    #             } else if (paymentMethodSelect.value === 'offline') {
+    #                 popupMessage.style.display = 'block';
+    #                 scannerImage.style.display = 'none'; // Hide the scanner image if it's visible
+    #                 setTimeout(function() {
+    #                     popupMessage.style.display = 'none';
+    #                     // Reset the select back to default option
+    #                     paymentMethodSelect.value = '';
+    #                 }, 5000); // Adjust the time the message remains visible (in milliseconds)
+    #             } else {
+    #                 scannerImage.style.display = 'none';
+    #                 popupMessage.style.display = 'none';
+    #             }
+    #         });
+    #     });
+    # </script> -->
+
+ 
+</div>
+</div> 
+<!-- Success Modal -->
+<div class="modal fade" id="successModal" tabindex="-1" role="dialog" aria-labelledby="successModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="successModalLabel">Registration Success</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                Your registration has been submitted successfully. Download your digital certificate below:
+            </div>
+            <div class="modal-footer">
+
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <form method= 'post' action='/downloadpaymentslip'>
+                                     <input type="hidden" name="email" id="email" required>
+
+                <button type="submit" class="btn btn-primary">Download Certificate</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+        // Function to populate input fields from query parameters
+        function populateForm() {
+            // Get the query parameters from the URL
+            const queryParams = new URLSearchParams(window.location.search);
+            
+            // Get the values from the query parameters
+            const email = queryParams.get('email');
+            // Get other values as needed
+
+            // Populate the input fields with the values
+            document.getElementById('email2').value = email;
+            // Set other input field values as needed
+        }
+
+        // Call the populateForm function when the page loads
+window.onload = populateForm;
+    </script>
+    <script>
+        // Function to populate input fields from query parameters
+        function populateForm() {
+            // Get the query parameters from the URL
+            const queryParams = new URLSearchParams(window.location.search);
+            
+            // Get the values from the query parameters
+            const email = queryParams.get('email');
+            // Get other values as needed
+
+            // Populate the input fields with the values
+            document.getElementById('email1').value = email;
+            // Set other input field values as needed
+        }
+
+        // Call the populateForm function when the page loads
+window.onload = populateForm;
+    </script>
+<script src="/vendors/jquery/jquery-3.4.1.js"></script>
+<script src="/vendors/bootstrap/bootstrap.bundle.js"></script>
+</body>
+</html>

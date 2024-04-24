@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+<title>Polytechnic</title>
+
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+
+<link rel="stylesheet" href="/css/animate.css">
+
+<link rel="stylesheet" href="/plugins/select2/css/select2.min.css">
+
+<link rel="stylesheet" href="/css/dataTables.bootstrap4.min.css">
+<script src="https://unpkg.com/akar-icons-fonts"></script>
+<link rel="stylesheet" href="/plugins/fontawesome/css/fontawesome.min.css">
+<link rel="stylesheet" href="/plugins/fontawesome/css/all.min.css">
+
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<div id="global-loader">
+<div class="whirly-loader"> </div>
+</div>
+
+<div class="main-wrapper p-3">
+<div class="content">
+<div class="page-header">
+    <img src="imgs/blank.jpg" style="position: relative; top:5%; left:50%; transform: translate(-50%,-2%);">    
+</div>
+<div class="page-header">
+    <a class="btn btn-submit" href="/confirmedstudentlist" style="font-size: 20px;">Confirmed Student List</a>
+    <a class="btn btn-submit" href="/rejectedstudents"  style="font-size: 20px;">Rejected Student List</a>
+    <a href="/collectpayment" class="btn btn-submit" style="font-size: 20px;">Collect Payment</a>
+    <a href="/allpayments" class="btn btn-submit" style="font-size: 20px;">Generate payment recipt</a>
+    <a href="/registercertificate" class="btn btn-submit" style="font-size: 20px;">Registration Certificate</a>
+    </div>
+<div class="card">
+<div class="card-body">
+<div class="table-top">
+    <div class="page-title">
+        <h2>Student List of Payment recipt</h2>
+        </div>
+<div class="search-set">
+<div class="search-input">
+<a class="btn btn-searchset"><img src="/img/icons/search-white.svg" alt="img" style="height:25px"></a>
+</div>
+</div>
+</div>
+<style>
+    th{
+        font-size: 20px;
+    }
+    td{
+        font-size: 20px;
+    }
+</style>
+<div class="card mb-0" id="filter_inputs">
+<div class="card-body pb-0">
+<div class="row">
+</div>
+</div>
+</div>
+</div>
+
+<div class="table-responsive">
+    <table class="table  datanew">
+        <thead>
+            <tr>
+                <th>Student Name</th>
+                <th>Branch</th>
+                <th>Payment Status</th>
+                <th>Download Receipt</th> <!-- New column for the action -->
+            </tr>
+        </thead>
+        <tbody>
+            <% payments.forEach(payment => { %>
+                <tr>
+                    <% const user = users.find(user => user.email === payment.email) || 'Ankan Roy'; %>
+
+                    <td><%= user.firstName %> <%= user.lastName %></td>
+                    <td>Electrical Engineering</td>
+                    <td><%= payment.status %> <%= payment.paymentMethod %></td>
+                    <td>
+                            <a href="/downloadpaymentsliponline?email=<%= user.email %>" class="btn btn-success" style="text-decoration: none; padding: 5px 10px; border-radius: 5px; color: #fff;">
+                                <!-- You can use a tick icon here -->
+                                <i class="fas fa-download"></i> <!-- Tick icon -->
+                                <!-- Or you can simply label it as Paid -->
+                                Download
+                            </a>
+                     
+                    </td>
+                </tr>
+            <% }); %>
+        </tbody>
+    </table>
+    
+    
+
+<script>
+    // Function to populate input fields from query parameters
+    function populateForm() {
+        // Get the query parameters from the URL
+        const queryParams = new URLSearchParams(window.location.search);
+        
+        // Get the values from the query parameters
+        const email = queryParams.get('email');
+        // Get other values as needed
+
+        // Populate the input fields with the values
+        document.getElementById('email').value = email;
+        // Set other input field values as needed
+    }
+
+    // Call the populateForm function when the page loads
+window.onload = populateForm;
+</script>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="modal fade" id="rejected" tabindex="-1" role="dialog" aria-labelledby="rejectedstudentsLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="rejectedstudentsLabel">Registered Students</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <!-- Content specific to Registered Students -->
+                <p>List of registered students will be displayed here.</p>
+            </div>
+            <!-- Add footer if needed -->
+        </div>
+    </div>
+</div>
+<!-- Add similar modals for other functionalities -->
+<div class="modal fade" id="accepted" tabindex="-1" role="dialog" aria-labelledby="acceptedstudentsLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="acceptedstudentsLabel">Registered Students</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <!-- Content specific to Registered Students -->
+                <p>List of registered students will be displayed here.</p>
+            </div>
+            <!-- Add footer if needed -->
+        </div>
+    </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
+
+<script src="/js/feather.min.js"></script>
+
+<script src="/js/jquery.slimscroll.min.js"></script>
+
+<script src="/js/jquery.dataTables.min.js"></script>
+<script src="/js/dataTables.bootstrap4.min.js"></script>
+
+<script src="/js/bootstrap.bundle.min.js"></script>
+
+<script src="/plugins/select2/js/select2.min.js"></script>
+
+<script src="/plugins/sweetalert/sweetalert2.all.min.js"></script>
+<script src="/plugins/sweetalert/sweetalerts.min.js"></script>
+
+<script src="/js/script.js"></script>
+</body>
+</html>
