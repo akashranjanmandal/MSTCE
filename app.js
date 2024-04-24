@@ -8,6 +8,7 @@ const path = require('path');
 
 // Initialize express app
 const app = express();
+const puppeteer = require('puppeteer');
 
 // Set up middleware
 app.use(bodyParser.json());
@@ -378,7 +379,7 @@ app.get('/downloadpaymentslip', async (req, res) => {
         ------------------------------------- */
         a {
             color: #1ab394;
-            text-decoration: underline;
+            text-decoration: none;
         }
         
         .btn-primary {
@@ -514,7 +515,7 @@ app.get('/downloadpaymentslip', async (req, res) => {
           }
           
           .btn {
-            width: 150px;
+            width: 250px;
             height: 60px;
             border-radius: 20px;
             background-color: red;
@@ -789,7 +790,6 @@ app.get('/viewattendance', async (req, res) => {
         // Generate PDF from HTML template
         pdf.create(htmlTemplate, options).toStream((err, stream) => {
             if (err) {
-                console.log(err);
                 // If there's an error, respond with an error message or redirect to an error page
                 return res.status(500).send('Failed to generate PDF');
             }
@@ -810,7 +810,6 @@ app.get('/viewattendance', async (req, res) => {
 app.get('/downloadpaymentsliponline', async (req, res) => {
     try {
         const { email } = req.query;
-            console.log(email)
         // Find the user by email address
         const user = await User.findOne({ email });
 
@@ -1179,22 +1178,22 @@ app.get('/downloadpaymentsliponline', async (req, res) => {
         `;
 
         // Options for pdf creation
-        const options = {
-            format: 'A4',
-            orientation: 'portrait'
-        };
+        const browser = await puppeteer.launch();
+        const page = await browser.newPage();
 
-        // Generate PDF from HTML template
-        pdf.create(htmlTemplate, options).toStream((err, stream) => {
-            if (err) {
-                // If there's an error, respond with an error message or redirect to an error page
-                return res.status(500).send('Failed to generate PDF');
-            }
-            
-            // Serve the generated PDF to the user
-            res.setHeader('Content-Type', 'application/pdf');
-            stream.pipe(res);
-        });
+        // Set the HTML content
+        await page.setContent(htmlTemplate);
+
+        // Generate PDF
+        const pdfBuffer = await page.pdf({ format: 'A4' });
+
+        // Close browser
+        await browser.close();
+
+        // Set headers and send the PDF as response
+        res.setHeader('Content-Type', 'application/pdf');
+        res.setHeader('Content-Disposition', 'attachment; filename=payment_slip.pdf');
+        res.send(pdfBuffer);
     } catch (err) {
         // If there's an error, respond with an error message or redirect to an error page
         res.status(500).send('Internal Server Error');
