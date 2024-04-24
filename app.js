@@ -515,7 +515,7 @@ app.get('/downloadpaymentslip', async (req, res) => {
           }
           
           .btn {
-            width: 250px;
+            width: 150px;
             height: 60px;
             border-radius: 20px;
             background-color: red;
@@ -953,7 +953,7 @@ app.get('/downloadpaymentsliponline', async (req, res) => {
         ------------------------------------- */
         a {
             color: #1ab394;
-            text-decoration: underline;
+            text-decoration: none;
         }
         
         .btn-primary {
@@ -1178,7 +1178,10 @@ app.get('/downloadpaymentsliponline', async (req, res) => {
         `;
 
         // Options for pdf creation
-        const browser = await puppeteer.launch();
+        const browser = await puppeteer.launch({
+            args: ['--no-sandbox', '--disable-setuid-sandbox', '--disable-dev-shm-usage'],
+            headless: true // Ensure headless mode
+        });
         const page = await browser.newPage();
 
         // Set the HTML content
