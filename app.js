@@ -789,6 +789,7 @@ app.get('/viewattendance', async (req, res) => {
         // Generate PDF from HTML template
         pdf.create(htmlTemplate, options).toStream((err, stream) => {
             if (err) {
+                console.log(err);
                 // If there's an error, respond with an error message or redirect to an error page
                 return res.status(500).send('Failed to generate PDF');
             }
@@ -809,6 +810,7 @@ app.get('/viewattendance', async (req, res) => {
 app.get('/downloadpaymentsliponline', async (req, res) => {
     try {
         const { email } = req.query;
+            console.log(email)
         // Find the user by email address
         const user = await User.findOne({ email });
 
